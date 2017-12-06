@@ -1,0 +1,17 @@
+*.mat
+*.m~
+*.l
+*.mat
+*.pyc
+*.aux
+*.log
+*.dvi
+*.avi
+*.svg
+*.dxf
+*.fdb_latexmk
+*.fls
+*.nav
+*.out
+*.snm
+*.toc

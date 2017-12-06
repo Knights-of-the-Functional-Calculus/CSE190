@@ -1,0 +1,107 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+% \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading nips_2017
+%
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{nips_2017}
+
+\usepackage{nips_2017}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+% \usepackage[final]{nips_2017}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{amsmath}
+\newcommand\RR{\mathbb{R}}
+\def\norm#1{\Vert #1 \Vert}
+\def\abs#1{\vert #1 \vert}
+\title{CSE 190: Neural Networks 2017}
+
+% The \author macro works with any number of authors. There are two
+% commands used to separate the names and addresses of multiple
+% authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to
+% break the lines. Using \AND forces a line break at that point. So,
+% if LaTeX puts 3 of 4 authors names on the first line, and the last
+% on the second line, try using \AND instead of \And before the third
+% author name.
+
+\author{
+  %% examples of more authors
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    Machine learning programming practice on assignment 1.
+\end{abstract}
+
+\section*{Part I}
+\subsection*{1.}
+\subsubsection*{(a)}
+For $d=2$, the activation rule is
+\begin{align}
+    && y &= \begin{cases} 1 & \text{if } w_{1}x_{1} + w_{2}x_{2} \geq \theta  \\ 0 &
+        \text{ else} \end{cases} \notag
+\end{align}
+The equation for the line representing the decision boundary is therefore
+\begin{align}
+    && w_1 x_1 + w_2 x_2 &= \theta \notag 
+\end{align}
+or simply
+\begin{align}
+    && w^T x &= \theta \notag 
+\end{align}
+\subsubsection*{(b)}
+Let $y$ be the projection of the origin onto the decision boundary. We must have
+\begin{align}
+    \tag*{($y$ must be on the boundary)}
+    && y^T w &= \theta \notag \\
+    \tag*{($y$ must be perpendicular to any vector parallel to the boundary)}
+    && y^T w_{\perp} &= 0 & \forall w_{\perp}. w_{\perp}^{T} w = 0  \notag 
+\end{align}
+Thus, one can write,
+\begin{align}
+    && y &= \alpha w & \text{for some } \alpha \in \RR \notag 
+\end{align}
+So
+\begin{align}
+    && w^{T}y (w^{T} y)^{T} &= \theta \theta^{T} \notag \\
+    \iff&& w^T y y^T w &= \theta^{2} \notag \\
+    \iff&& w^T (\alpha w) (\alpha w^T) w &= \theta^{2} \notag \\
+    \iff&& (\alpha^2 w^T w) (w^{T} w) &= \theta^{2} \notag \\
+    \iff&& \norm{y}^2 \norm{w}^{2} &= \theta^{2} \notag \\
+    \iff&& \norm{y}   &= \frac{\abs{w^T x}}{\norm{w}} \notag 
+\end{align}
+\end{document}
